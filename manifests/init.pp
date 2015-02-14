@@ -35,7 +35,32 @@
 #
 # Copyright 2015 Your name here, unless otherwise noted.
 #
-class mongodb {
+class mongodb
+(
+    $repoAlias = 'mongodb-repo',
+    $repoUrl
+{
 
+	validate_string( $repoAlias );
+	validate_string( $repoUrl );
+
+        zypprepo { $repoAlias :
+                baseurl         => $repoUrl,
+                enabled         => 1,
+                autorefresh     => 1,
+                name            => $repoAlias,
+                gpgcheck        => 0,
+        }
+
+        package { 'mongodb' :
+                ensure  => latest,
+                install_options => [ "--from ${repoAlias}" ],
+                require => Zypprepo[ $repoAlias ],
+        }
+
+        service { 'mongodb' :
+                ensure  => running,
+                enable  => true,
+        }
 
 }
