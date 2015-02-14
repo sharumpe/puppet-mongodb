@@ -1,0 +1,14 @@
+{
+  "name": "sharumpe-mongodb",
+  "version": "0.1.0",
+  "author": "sharumpe",
+  "summary": "Simple module to add a Zypper repository and install mongodb.",
+  "license": "Apache 2.0",
+  "source": "https://github.com/sharumpe/puppet-mongodb.git",
+  "project_page": "https://github.com/sharumpe/puppet-mongodb",
+  "issues_url": "https://github.com/sharumpe/puppet-mongodb/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
